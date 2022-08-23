@@ -1,0 +1,56 @@
+﻿@model _4H_VFMS.Models.tblUserList
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login</title>
+    <link href="~/MyStyles/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/MyStyles/Login-Form-Basic.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <section class="position-relative py-4 py-xl-5">
+        <div class="container position-relative">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="font-weight-bold">4H Vehicle Fleet Managment System</h2>
+                </div>
+            </div>
+            @using (Html.BeginForm("Authorise", "Login", FormMethod.Post))
+            {
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6 col-xl-4">
+                        <div class="card">
+                            <div class="card-body text-center d-flex flex-column align-items-center">
+                                <img class="img-fluid" src="~/Images/logo.jpg" style="width: 80px;height: 80px;margin-bottom: 20px;">
+                                <form method="post">
+                                    <fieldset class="clearfix">
+
+                                        <div class="mb-3">@Html.EditorFor(model => model.uLogin, new { htmlAttributes = new { placeholder = " Enter Login", required = "required" }, })</div>
+                                        <div class="mb-3">@Html.EditorFor(model => model.uPassword, new { htmlAttributes = new { placeholder = " Enter password", required = "required", Type = "password" }, })</div>
+                                        <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Log in</button></div>
+
+                                    </fieldset>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/MyScripts/bootstrap.min.js"></script>
+</body>
+
+</html>

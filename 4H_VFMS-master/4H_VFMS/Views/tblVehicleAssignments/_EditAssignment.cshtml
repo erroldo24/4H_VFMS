@@ -1,0 +1,88 @@
+﻿@model _4H_VFMS.Models.tblVehicleAssignment
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="modal fade" id="addtblUserList">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="addtblVehicleAssignment">Edit Assignment</h4>
+                </div>
+
+                <div class="modal-body">
+                    <form action="Edit" class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.dId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("dId", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.dId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:20px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vId, "vId", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("vId", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.vId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vAssignOutDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.vAssignOutDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.vAssignOutDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vAssignDuration, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.vAssignDuration, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.vAssignDuration, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vAssignUsed, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.vAssignUsed, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.vAssignUsed, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vMileageOut, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.vMileageOut, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.vMileageOut, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vMileageIn, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.vMileageIn, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.vMileageIn, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:20px"></p>
+
+                    </form>
+                </div>
+
+                <div class="modal-footer" style="padding-top:30px">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" data-save="modal">SignIn</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+}
+
+

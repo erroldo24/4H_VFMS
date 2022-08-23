@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5898cf66f8284efdb7ca16eea2c6a9b3" Name="Diagram1">
+        <EntityTypeShape EntityType="VFMS_DBModel.gender" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VFMS_DBModel.position" Width="1.5" PointX="0.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VFMS_DBModel.tblDriverList" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="VFMS_DBModel.tblUserList" Width="1.5" PointX="6" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VFMS_DBModel.tblVehicleAssignment" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VFMS_DBModel.tblVehicleList" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VFMS_DBModel.title" Width="1.5" PointX="0.75" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="VFMS_DBModel.vColour" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VFMS_DBModel.vStatu" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VFMS_DBModel.vTransType" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VFMS_DBModel.vType" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VFMS_DBModel.vYear" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <AssociationConnector Association="VFMS_DBModel.FK_tblUserList_dGender" ManuallyRouted="false" />
+        <AssociationConnector Association="VFMS_DBModel.FK_tblUserList_gender" ManuallyRouted="false" />
+        <AssociationConnector Association="VFMS_DBModel.FK_tblUserList_dPosition" ManuallyRouted="false" />
+        <AssociationConnector Association="VFMS_DBModel.FK_tblUserList_position" ManuallyRouted="false" />
+        <AssociationConnector Association="VFMS_DBModel.FK_tblUserList_dId" ManuallyRouted="false" />
+        <AssociationConnector Association="VFMS_DBModel.FK_tblUserList_dTitle" ManuallyRouted="false" />
+        <AssociationConnector Association="VFMS_DBModel.FK_tblUserList_title" ManuallyRouted="false" />
+        <AssociationConnector Association="VFMS_DBModel.FK_tblUserList_vId" ManuallyRouted="false" />
+        <AssociationConnector Association="VFMS_DBModel.FK_tblUserList_vColour" ManuallyRouted="false" />
+        <AssociationConnector Association="VFMS_DBModel.FK_tblUserList_vStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="VFMS_DBModel.FK_tblUserList_vTransType" ManuallyRouted="false" />
+        <AssociationConnector Association="VFMS_DBModel.FK_tblUserList_vType" ManuallyRouted="false" />
+        <AssociationConnector Association="VFMS_DBModel.FK_tblUserList_vYear" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="VFMS_DBModel.C__MigrationHistory" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="VFMS_DBModel.AspNetRole" Width="1.5" PointX="3.375" PointY="8.5" />
+        <EntityTypeShape EntityType="VFMS_DBModel.AspNetUserClaim" Width="1.5" PointX="7.875" PointY="7" />
+        <EntityTypeShape EntityType="VFMS_DBModel.AspNetUserLogin" Width="1.5" PointX="7.875" PointY="9.75" />
+        <EntityTypeShape EntityType="VFMS_DBModel.AspNetUser" Width="1.5" PointX="5.625" PointY="7.375" />
+        <EntityTypeShape EntityType="VFMS_DBModel.sysdiagram" Width="1.5" PointX="7.375" PointY="3.75" />
+        <AssociationConnector Association="VFMS_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="VFMS_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="VFMS_DBModel.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

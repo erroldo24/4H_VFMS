@@ -1,0 +1,98 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+
+@model IPagedList<_4H_VFMS.Models.tblVehicleAssignment>
+
+@{
+    ViewBag.Title = "Vehicle Assignment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vehicle Assignment Report(@ViewBag.vAssignCount)</h2>
+
+<div id="PlaceHolderHere"></div>
+
+<p style="padding-top:5px"></p>
+
+@using (Html.BeginForm("Index", "Reports", FormMethod.Get))
+{
+    <p>
+        <table>
+            <tr>
+                <td style="padding-right:5px">Find by name:</td>
+                <td style="padding-right:5px">@Html.TextBox("SearchString", ViewBag.CurrentFilter as string)</td>
+                <td>
+                    <button type="submit" value="Search" class="btn btn-success btn btn-sm">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        Search
+                    </button>
+                </td>
+                <td style="padding-left:10px">
+                    Searches Found (@ViewBag.vCountSearch)
+                </td>
+            </tr>
+        </table>
+    </p>
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Driver Info
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().tblVehicleList.vType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().tblVehicleList.vLicPlate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().vAssignOutDate)
+        </th>
+        <th>
+            Day(s)
+        </th>
+        <th>
+            Mileage Out (KM)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblDriverList.dFirstName)
+                @Html.DisplayFor(modelItem => item.tblDriverList.dLastName) -
+                @Html.DisplayFor(modelItem => item.tblDriverList.dLicense)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblVehicleList.vType1.vType1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblVehicleList.vLicPlate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vAssignOutDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vAssignDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vMileageOut)
+            </td>
+            <td>
+                <button type="button" class="btn btn-info" data-toggle="ajax-modal" data-target="#addtblUserList"
+                        data-url="@Url.Action($"Details/{item.Id}")">
+                    Details
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

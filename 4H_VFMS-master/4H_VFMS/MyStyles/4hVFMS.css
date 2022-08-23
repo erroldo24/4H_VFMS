@@ -1,0 +1,12 @@
+﻿body {
+}
+
+footer {
+    text-align:center;
+    padding-top: 15px;
+}
+
+.navbar{
+    background-color:darkgreen;
+    color: white;
+}

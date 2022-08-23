@@ -1,0 +1,80 @@
+﻿@model _4H_VFMS.Models.tblVehicleList
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="modal fade" id="addtblVehicleList">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="addtblVehicleList">Add Vehicle</h4>
+                </div>
+
+                <div class="modal-body">
+                    <form action="Create" class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vType, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("vType", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.vType, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vYear, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("vYear", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.vYear, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vColour, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("vColour", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.vColour, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vTransType, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("vTransType", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.vTransType, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vLicPlate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.vLicPlate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.vLicPlate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("vStatus", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.vStatus, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <p style="padding-bottom:20px"></p>
+
+                    </form>
+                </div>
+
+                <div class="modal-footer" style="padding-top:30px">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" data-save="modal">Save</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+}
+

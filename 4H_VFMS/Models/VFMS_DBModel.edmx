@@ -1,0 +1,1258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VFMS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="position" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tblDriverList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dTitle" Type="int" Nullable="false" />
+          <Property Name="dFirstName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="dLastName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="dGender" Type="int" Nullable="false" />
+          <Property Name="dPosition" Type="int" Nullable="false" />
+          <Property Name="dLicense" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="dLicenseExpiry" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="dStatus" Type="varchar" MaxLength="3" />
+          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="dateCreated" Type="datetime" />
+          <Property Name="updatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="dateUpdated" Type="datetime" />
+          <Property Name="deletedBy" Type="varchar" MaxLength="50" />
+          <Property Name="deleteFlag" Type="varchar" MaxLength="3" />
+          <Property Name="dateDeleted" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblUserList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uTitle" Type="int" Nullable="false" />
+          <Property Name="uFirstName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="uLastName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="uGender" Type="int" Nullable="false" />
+          <Property Name="uPosition" Type="int" Nullable="false" />
+          <Property Name="uTrn" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="uLogin" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="uPassword" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="dateCreated" Type="datetime" />
+          <Property Name="updatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="dateUpdated" Type="datetime" />
+          <Property Name="deletedBy" Type="varchar" MaxLength="50" />
+          <Property Name="deleteFlag" Type="varchar" MaxLength="3" />
+          <Property Name="dateDeleted" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblVehicleAssignment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dId" Type="int" Nullable="false" />
+          <Property Name="vId" Type="int" Nullable="false" />
+          <Property Name="vAssignOutDate" Type="datetime" />
+          <Property Name="vAssignDuration" Type="int" Nullable="false" />
+          <Property Name="vAssignInDate" Type="datetime" />
+          <Property Name="vAssignUsed" Type="int" />
+          <Property Name="vMileageOut" Type="int" Nullable="false" />
+          <Property Name="vMileageIn" Type="int" />
+          <Property Name="vMileageTravelled" Type="int" />
+          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="dateCreated" Type="datetime" />
+          <Property Name="updatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="dateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblVehicleList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vType" Type="int" Nullable="false" />
+          <Property Name="vYear" Type="int" Nullable="false" />
+          <Property Name="vColour" Type="int" Nullable="false" />
+          <Property Name="vTransType" Type="int" Nullable="false" />
+          <Property Name="vLicPlate" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="vStatus" Type="int" Nullable="false" />
+          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="dateCreated" Type="datetime" />
+          <Property Name="updatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="dateUpdated" Type="datetime" />
+          <Property Name="deletedBy" Type="varchar" MaxLength="50" />
+          <Property Name="deleteFlag" Type="varchar" MaxLength="3" />
+          <Property Name="dateDeleted" Type="datetime" />
+        </EntityType>
+        <EntityType Name="title">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vColour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vColour" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vStatus" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vTransType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vTransType" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vType" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vYear">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vYear" Type="varchar" MaxLength="4" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_dGender">
+          <End Role="gender" Type="Self.gender" Multiplicity="1" />
+          <End Role="tblDriverList" Type="Self.tblDriverList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDriverList">
+              <PropertyRef Name="dGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_dId">
+          <End Role="tblDriverList" Type="Self.tblDriverList" Multiplicity="1" />
+          <End Role="tblVehicleAssignment" Type="Self.tblVehicleAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDriverList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblVehicleAssignment">
+              <PropertyRef Name="dId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_dPosition">
+          <End Role="position" Type="Self.position" Multiplicity="1" />
+          <End Role="tblDriverList" Type="Self.tblDriverList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDriverList">
+              <PropertyRef Name="dPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_dTitle">
+          <End Role="title" Type="Self.title" Multiplicity="1" />
+          <End Role="tblDriverList" Type="Self.tblDriverList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="title">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDriverList">
+              <PropertyRef Name="dTitle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_gender">
+          <End Role="gender" Type="Self.gender" Multiplicity="1" />
+          <End Role="tblUserList" Type="Self.tblUserList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUserList">
+              <PropertyRef Name="uGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_position">
+          <End Role="position" Type="Self.position" Multiplicity="1" />
+          <End Role="tblUserList" Type="Self.tblUserList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUserList">
+              <PropertyRef Name="uPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_title">
+          <End Role="title" Type="Self.title" Multiplicity="1" />
+          <End Role="tblUserList" Type="Self.tblUserList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="title">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUserList">
+              <PropertyRef Name="uTitle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_vColour">
+          <End Role="vColour" Type="Self.vColour" Multiplicity="1" />
+          <End Role="tblVehicleList" Type="Self.tblVehicleList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vColour">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblVehicleList">
+              <PropertyRef Name="vColour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_vStatus">
+          <End Role="vStatus" Type="Self.vStatus" Multiplicity="1" />
+          <End Role="tblVehicleList" Type="Self.tblVehicleList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblVehicleList">
+              <PropertyRef Name="vStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_vTransType">
+          <End Role="vTransType" Type="Self.vTransType" Multiplicity="1" />
+          <End Role="tblVehicleList" Type="Self.tblVehicleList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vTransType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblVehicleList">
+              <PropertyRef Name="vTransType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_vType">
+          <End Role="vType" Type="Self.vType" Multiplicity="1" />
+          <End Role="tblVehicleList" Type="Self.tblVehicleList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblVehicleList">
+              <PropertyRef Name="vType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_vYear">
+          <End Role="vYear" Type="Self.vYear" Multiplicity="1" />
+          <End Role="tblVehicleList" Type="Self.tblVehicleList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vYear">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblVehicleList">
+              <PropertyRef Name="vYear" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VFMS_DBModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gender" EntityType="Self.gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="position" EntityType="Self.position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDriverList" EntityType="Self.tblDriverList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserList" EntityType="Self.tblUserList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVehicleAssignment" EntityType="Self.tblVehicleAssignment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVehicleList" EntityType="Self.tblVehicleList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="title" EntityType="Self.title" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vColour" EntityType="Self.vColour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vStatus" EntityType="Self.vStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vTransType" EntityType="Self.vTransType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vType" EntityType="Self.vType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vYear" EntityType="Self.vYear" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_dGender" Association="Self.FK_tblUserList_dGender">
+            <End Role="gender" EntitySet="gender" />
+            <End Role="tblDriverList" EntitySet="tblDriverList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_dId" Association="Self.FK_tblUserList_dId">
+            <End Role="tblDriverList" EntitySet="tblDriverList" />
+            <End Role="tblVehicleAssignment" EntitySet="tblVehicleAssignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_dPosition" Association="Self.FK_tblUserList_dPosition">
+            <End Role="position" EntitySet="position" />
+            <End Role="tblDriverList" EntitySet="tblDriverList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_dTitle" Association="Self.FK_tblUserList_dTitle">
+            <End Role="title" EntitySet="title" />
+            <End Role="tblDriverList" EntitySet="tblDriverList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_gender" Association="Self.FK_tblUserList_gender">
+            <End Role="gender" EntitySet="gender" />
+            <End Role="tblUserList" EntitySet="tblUserList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_position" Association="Self.FK_tblUserList_position">
+            <End Role="position" EntitySet="position" />
+            <End Role="tblUserList" EntitySet="tblUserList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_title" Association="Self.FK_tblUserList_title">
+            <End Role="title" EntitySet="title" />
+            <End Role="tblUserList" EntitySet="tblUserList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_vColour" Association="Self.FK_tblUserList_vColour">
+            <End Role="vColour" EntitySet="vColour" />
+            <End Role="tblVehicleList" EntitySet="tblVehicleList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_vStatus" Association="Self.FK_tblUserList_vStatus">
+            <End Role="vStatus" EntitySet="vStatus" />
+            <End Role="tblVehicleList" EntitySet="tblVehicleList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_vTransType" Association="Self.FK_tblUserList_vTransType">
+            <End Role="vTransType" EntitySet="vTransType" />
+            <End Role="tblVehicleList" EntitySet="tblVehicleList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_vType" Association="Self.FK_tblUserList_vType">
+            <End Role="vType" EntitySet="vType" />
+            <End Role="tblVehicleList" EntitySet="tblVehicleList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_vYear" Association="Self.FK_tblUserList_vYear">
+            <End Role="vYear" EntitySet="vYear" />
+            <End Role="tblVehicleList" EntitySet="tblVehicleList" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VFMS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gender1" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblDriverLists" Relationship="Self.FK_tblUserList_dGender" FromRole="gender" ToRole="tblDriverList" />
+          <NavigationProperty Name="tblUserLists" Relationship="Self.FK_tblUserList_gender" FromRole="gender" ToRole="tblUserList" />
+        </EntityType>
+        <EntityType Name="position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="position1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblDriverLists" Relationship="Self.FK_tblUserList_dPosition" FromRole="position" ToRole="tblDriverList" />
+          <NavigationProperty Name="tblUserLists" Relationship="Self.FK_tblUserList_position" FromRole="position" ToRole="tblUserList" />
+        </EntityType>
+        <EntityType Name="tblDriverList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dTitle" Type="Int32" Nullable="false" />
+          <Property Name="dFirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dLastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dGender" Type="Int32" Nullable="false" />
+          <Property Name="dPosition" Type="Int32" Nullable="false" />
+          <Property Name="dLicense" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dLicenseExpiry" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateCreated" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="deletedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="deleteFlag" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="dateDeleted" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="gender" Relationship="Self.FK_tblUserList_dGender" FromRole="tblDriverList" ToRole="gender" />
+          <NavigationProperty Name="position" Relationship="Self.FK_tblUserList_dPosition" FromRole="tblDriverList" ToRole="position" />
+          <NavigationProperty Name="tblVehicleAssignments" Relationship="Self.FK_tblUserList_dId" FromRole="tblDriverList" ToRole="tblVehicleAssignment" />
+          <NavigationProperty Name="title" Relationship="Self.FK_tblUserList_dTitle" FromRole="tblDriverList" ToRole="title" />
+          <Property Name="dStatus" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblUserList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uTitle" Type="Int32" Nullable="false" />
+          <Property Name="uFirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uLastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uGender" Type="Int32" Nullable="false" />
+          <Property Name="uPosition" Type="Int32" Nullable="false" />
+          <Property Name="uTrn" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="uLogin" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateCreated" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="deletedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="deleteFlag" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="dateDeleted" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="gender" Relationship="Self.FK_tblUserList_gender" FromRole="tblUserList" ToRole="gender" />
+          <NavigationProperty Name="position" Relationship="Self.FK_tblUserList_position" FromRole="tblUserList" ToRole="position" />
+          <NavigationProperty Name="title" Relationship="Self.FK_tblUserList_title" FromRole="tblUserList" ToRole="title" />
+        </EntityType>
+        <EntityType Name="tblVehicleAssignment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dId" Type="Int32" Nullable="false" />
+          <Property Name="vId" Type="Int32" Nullable="false" />
+          <Property Name="vAssignOutDate" Type="DateTime" Precision="3" />
+          <Property Name="vAssignDuration" Type="Int32" Nullable="false" />
+          <Property Name="vAssignInDate" Type="DateTime" Precision="3" />
+          <Property Name="vAssignUsed" Type="Int32" />
+          <Property Name="vMileageOut" Type="Int32" Nullable="false" />
+          <Property Name="vMileageIn" Type="Int32" />
+          <Property Name="vMileageTravelled" Type="Int32" />
+          <Property Name="createdBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="dateCreated" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="dateUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblDriverList" Relationship="Self.FK_tblUserList_dId" FromRole="tblVehicleAssignment" ToRole="tblDriverList" />
+          <NavigationProperty Name="tblVehicleList" Relationship="Self.FK_tblUserList_vId" FromRole="tblVehicleAssignment" ToRole="tblVehicleList" />
+        </EntityType>
+        <EntityType Name="tblVehicleList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vType" Type="Int32" Nullable="false" />
+          <Property Name="vYear" Type="Int32" Nullable="false" />
+          <Property Name="vColour" Type="Int32" Nullable="false" />
+          <Property Name="vTransType" Type="Int32" Nullable="false" />
+          <Property Name="vLicPlate" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vStatus" Type="Int32" Nullable="false" />
+          <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateCreated" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="deletedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="deleteFlag" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="dateDeleted" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblVehicleAssignments" Relationship="Self.FK_tblUserList_vId" FromRole="tblVehicleList" ToRole="tblVehicleAssignment" />
+          <NavigationProperty Name="vColour1" Relationship="Self.FK_tblUserList_vColour" FromRole="tblVehicleList" ToRole="vColour" />
+          <NavigationProperty Name="vStatu" Relationship="Self.FK_tblUserList_vStatus" FromRole="tblVehicleList" ToRole="vStatus" />
+          <NavigationProperty Name="vTransType1" Relationship="Self.FK_tblUserList_vTransType" FromRole="tblVehicleList" ToRole="vTransType" />
+          <NavigationProperty Name="vType1" Relationship="Self.FK_tblUserList_vType" FromRole="tblVehicleList" ToRole="vType" />
+          <NavigationProperty Name="vYear1" Relationship="Self.FK_tblUserList_vYear" FromRole="tblVehicleList" ToRole="vYear" />
+        </EntityType>
+        <EntityType Name="title">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblDriverLists" Relationship="Self.FK_tblUserList_dTitle" FromRole="title" ToRole="tblDriverList" />
+          <NavigationProperty Name="tblUserLists" Relationship="Self.FK_tblUserList_title" FromRole="title" ToRole="tblUserList" />
+        </EntityType>
+        <EntityType Name="vColour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vColour1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblVehicleLists" Relationship="Self.FK_tblUserList_vColour" FromRole="vColour" ToRole="tblVehicleList" />
+        </EntityType>
+        <EntityType Name="vStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vStatus" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblVehicleLists" Relationship="Self.FK_tblUserList_vStatus" FromRole="vStatus" ToRole="tblVehicleList" />
+        </EntityType>
+        <EntityType Name="vTransType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vTransType1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblVehicleLists" Relationship="Self.FK_tblUserList_vTransType" FromRole="vTransType" ToRole="tblVehicleList" />
+        </EntityType>
+        <EntityType Name="vType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vType1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblVehicleLists" Relationship="Self.FK_tblUserList_vType" FromRole="vType" ToRole="tblVehicleList" />
+        </EntityType>
+        <EntityType Name="vYear">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vYear1" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblVehicleLists" Relationship="Self.FK_tblUserList_vYear" FromRole="vYear" ToRole="tblVehicleList" />
+        </EntityType>
+        <Association Name="FK_tblUserList_dGender">
+          <End Role="gender" Type="Self.gender" Multiplicity="1" />
+          <End Role="tblDriverList" Type="Self.tblDriverList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDriverList">
+              <PropertyRef Name="dGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_gender">
+          <End Role="gender" Type="Self.gender" Multiplicity="1" />
+          <End Role="tblUserList" Type="Self.tblUserList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUserList">
+              <PropertyRef Name="uGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_dPosition">
+          <End Role="position" Type="Self.position" Multiplicity="1" />
+          <End Role="tblDriverList" Type="Self.tblDriverList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDriverList">
+              <PropertyRef Name="dPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_position">
+          <End Role="position" Type="Self.position" Multiplicity="1" />
+          <End Role="tblUserList" Type="Self.tblUserList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUserList">
+              <PropertyRef Name="uPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_dId">
+          <End Role="tblDriverList" Type="Self.tblDriverList" Multiplicity="1" />
+          <End Role="tblVehicleAssignment" Type="Self.tblVehicleAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDriverList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblVehicleAssignment">
+              <PropertyRef Name="dId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_dTitle">
+          <End Role="title" Type="Self.title" Multiplicity="1" />
+          <End Role="tblDriverList" Type="Self.tblDriverList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="title">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDriverList">
+              <PropertyRef Name="dTitle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_title">
+          <End Role="title" Type="Self.title" Multiplicity="1" />
+          <End Role="tblUserList" Type="Self.tblUserList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="title">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUserList">
+              <PropertyRef Name="uTitle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_vId">
+          <End Role="tblVehicleList" Type="Self.tblVehicleList" Multiplicity="1" />
+          <End Role="tblVehicleAssignment" Type="Self.tblVehicleAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblVehicleList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblVehicleAssignment">
+              <PropertyRef Name="vId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_vColour">
+          <End Role="vColour" Type="Self.vColour" Multiplicity="1" />
+          <End Role="tblVehicleList" Type="Self.tblVehicleList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vColour">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblVehicleList">
+              <PropertyRef Name="vColour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_vStatus">
+          <End Role="vStatus" Type="Self.vStatu" Multiplicity="1" />
+          <End Role="tblVehicleList" Type="Self.tblVehicleList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblVehicleList">
+              <PropertyRef Name="vStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_vTransType">
+          <End Role="vTransType" Type="Self.vTransType" Multiplicity="1" />
+          <End Role="tblVehicleList" Type="Self.tblVehicleList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vTransType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblVehicleList">
+              <PropertyRef Name="vTransType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_vType">
+          <End Role="vType" Type="Self.vType" Multiplicity="1" />
+          <End Role="tblVehicleList" Type="Self.tblVehicleList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblVehicleList">
+              <PropertyRef Name="vType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserList_vYear">
+          <End Role="vYear" Type="Self.vYear" Multiplicity="1" />
+          <End Role="tblVehicleList" Type="Self.tblVehicleList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vYear">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblVehicleList">
+              <PropertyRef Name="vYear" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VFMS_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="genders" EntityType="Self.gender" />
+          <EntitySet Name="positions" EntityType="Self.position" />
+          <EntitySet Name="tblDriverLists" EntityType="Self.tblDriverList" />
+          <EntitySet Name="tblUserLists" EntityType="Self.tblUserList" />
+          <EntitySet Name="tblVehicleAssignments" EntityType="Self.tblVehicleAssignment" />
+          <EntitySet Name="tblVehicleLists" EntityType="Self.tblVehicleList" />
+          <EntitySet Name="titles" EntityType="Self.title" />
+          <EntitySet Name="vColours" EntityType="Self.vColour" />
+          <EntitySet Name="vStatus" EntityType="Self.vStatu" />
+          <EntitySet Name="vTransTypes" EntityType="Self.vTransType" />
+          <EntitySet Name="vTypes" EntityType="Self.vType" />
+          <EntitySet Name="vYears" EntityType="Self.vYear" />
+          <AssociationSet Name="FK_tblUserList_dGender" Association="Self.FK_tblUserList_dGender">
+            <End Role="gender" EntitySet="genders" />
+            <End Role="tblDriverList" EntitySet="tblDriverLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_gender" Association="Self.FK_tblUserList_gender">
+            <End Role="gender" EntitySet="genders" />
+            <End Role="tblUserList" EntitySet="tblUserLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_dPosition" Association="Self.FK_tblUserList_dPosition">
+            <End Role="position" EntitySet="positions" />
+            <End Role="tblDriverList" EntitySet="tblDriverLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_position" Association="Self.FK_tblUserList_position">
+            <End Role="position" EntitySet="positions" />
+            <End Role="tblUserList" EntitySet="tblUserLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_dId" Association="Self.FK_tblUserList_dId">
+            <End Role="tblDriverList" EntitySet="tblDriverLists" />
+            <End Role="tblVehicleAssignment" EntitySet="tblVehicleAssignments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_dTitle" Association="Self.FK_tblUserList_dTitle">
+            <End Role="title" EntitySet="titles" />
+            <End Role="tblDriverList" EntitySet="tblDriverLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_title" Association="Self.FK_tblUserList_title">
+            <End Role="title" EntitySet="titles" />
+            <End Role="tblUserList" EntitySet="tblUserLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_vId" Association="Self.FK_tblUserList_vId">
+            <End Role="tblVehicleList" EntitySet="tblVehicleLists" />
+            <End Role="tblVehicleAssignment" EntitySet="tblVehicleAssignments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_vColour" Association="Self.FK_tblUserList_vColour">
+            <End Role="vColour" EntitySet="vColours" />
+            <End Role="tblVehicleList" EntitySet="tblVehicleLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_vStatus" Association="Self.FK_tblUserList_vStatus">
+            <End Role="vStatus" EntitySet="vStatus" />
+            <End Role="tblVehicleList" EntitySet="tblVehicleLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_vTransType" Association="Self.FK_tblUserList_vTransType">
+            <End Role="vTransType" EntitySet="vTransTypes" />
+            <End Role="tblVehicleList" EntitySet="tblVehicleLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_vType" Association="Self.FK_tblUserList_vType">
+            <End Role="vType" EntitySet="vTypes" />
+            <End Role="tblVehicleList" EntitySet="tblVehicleLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserList_vYear" Association="Self.FK_tblUserList_vYear">
+            <End Role="vYear" EntitySet="vYears" />
+            <End Role="tblVehicleList" EntitySet="tblVehicleLists" />
+          </AssociationSet>
+          <EntitySet Name="C__MigrationHistory" EntityType="VFMS_DBModel.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="VFMS_DBModel.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="VFMS_DBModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="VFMS_DBModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="VFMS_DBModel.AspNetUser" />
+          <EntitySet Name="sysdiagrams" EntityType="VFMS_DBModel.sysdiagram" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="VFMS_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="VFMS_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="VFMS_DBModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="VFMS_DBModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="VFMS_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="VFMS_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="VFMS_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="VFMS_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="AspNetRoles" Relationship="VFMS_DBModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="VFMS_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="VFMS_DBModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="VFMS_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="VFMS_DBModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="VFMS_DBModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="VFMS_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VFMS_DBModelStoreContainer" CdmEntityContainer="VFMS_DBEntities">
+          <EntitySetMapping Name="genders">
+            <EntityTypeMapping TypeName="VFMS_DBModel.gender">
+              <MappingFragment StoreEntitySet="gender">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="gender1" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="positions">
+            <EntityTypeMapping TypeName="VFMS_DBModel.position">
+              <MappingFragment StoreEntitySet="position">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="position1" ColumnName="position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDriverLists">
+            <EntityTypeMapping TypeName="VFMS_DBModel.tblDriverList">
+              <MappingFragment StoreEntitySet="tblDriverList">
+                <ScalarProperty Name="dStatus" ColumnName="dStatus" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="dFirstName" ColumnName="dFirstName" />
+                <ScalarProperty Name="dLastName" ColumnName="dLastName" />
+                <ScalarProperty Name="dGender" ColumnName="dGender" />
+                <ScalarProperty Name="dPosition" ColumnName="dPosition" />
+                <ScalarProperty Name="dTitle" ColumnName="dTitle" />
+                <ScalarProperty Name="dLicense" ColumnName="dLicense" />
+                <ScalarProperty Name="dLicenseExpiry" ColumnName="dLicenseExpiry" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+                <ScalarProperty Name="deletedBy" ColumnName="deletedBy" />
+                <ScalarProperty Name="deleteFlag" ColumnName="deleteFlag" />
+                <ScalarProperty Name="dateDeleted" ColumnName="dateDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserLists">
+            <EntityTypeMapping TypeName="VFMS_DBModel.tblUserList">
+              <MappingFragment StoreEntitySet="tblUserList">
+                <ScalarProperty Name="uTrn" ColumnName="uTrn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uFirstName" ColumnName="uFirstName" />
+                <ScalarProperty Name="uLastName" ColumnName="uLastName" />
+                <ScalarProperty Name="uGender" ColumnName="uGender" />
+                <ScalarProperty Name="uPosition" ColumnName="uPosition" />
+                <ScalarProperty Name="uLogin" ColumnName="uLogin" />
+                <ScalarProperty Name="uPassword" ColumnName="uPassword" />
+                <ScalarProperty Name="uTitle" ColumnName="uTitle" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+                <ScalarProperty Name="deletedBy" ColumnName="deletedBy" />
+                <ScalarProperty Name="deleteFlag" ColumnName="deleteFlag" />
+                <ScalarProperty Name="dateDeleted" ColumnName="dateDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVehicleAssignments">
+            <EntityTypeMapping TypeName="VFMS_DBModel.tblVehicleAssignment">
+              <MappingFragment StoreEntitySet="tblVehicleAssignment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="dId" ColumnName="dId" />
+                <ScalarProperty Name="vId" ColumnName="vId" />
+                <ScalarProperty Name="vAssignOutDate" ColumnName="vAssignOutDate" />
+                <ScalarProperty Name="vAssignDuration" ColumnName="vAssignDuration" />
+                <ScalarProperty Name="vAssignInDate" ColumnName="vAssignInDate" />
+                <ScalarProperty Name="vAssignUsed" ColumnName="vAssignUsed" />
+                <ScalarProperty Name="vMileageOut" ColumnName="vMileageOut" />
+                <ScalarProperty Name="vMileageIn" ColumnName="vMileageIn" />
+                <ScalarProperty Name="vMileageTravelled" ColumnName="vMileageTravelled" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVehicleLists">
+            <EntityTypeMapping TypeName="VFMS_DBModel.tblVehicleList">
+              <MappingFragment StoreEntitySet="tblVehicleList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="vColour" ColumnName="vColour" />
+                <ScalarProperty Name="vType" ColumnName="vType" />
+                <ScalarProperty Name="vLicPlate" ColumnName="vLicPlate" />
+                <ScalarProperty Name="vYear" ColumnName="vYear" />
+                <ScalarProperty Name="vTransType" ColumnName="vTransType" />
+                <ScalarProperty Name="vStatus" ColumnName="vStatus" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+                <ScalarProperty Name="deletedBy" ColumnName="deletedBy" />
+                <ScalarProperty Name="deleteFlag" ColumnName="deleteFlag" />
+                <ScalarProperty Name="dateDeleted" ColumnName="dateDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="titles">
+            <EntityTypeMapping TypeName="VFMS_DBModel.title">
+              <MappingFragment StoreEntitySet="title">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="title1" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vColours">
+            <EntityTypeMapping TypeName="VFMS_DBModel.vColour">
+              <MappingFragment StoreEntitySet="vColour">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="vColour1" ColumnName="vColour" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vStatus">
+            <EntityTypeMapping TypeName="VFMS_DBModel.vStatu">
+              <MappingFragment StoreEntitySet="vStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="vStatus" ColumnName="vStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vTransTypes">
+            <EntityTypeMapping TypeName="VFMS_DBModel.vTransType">
+              <MappingFragment StoreEntitySet="vTransType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="vTransType1" ColumnName="vTransType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vTypes">
+            <EntityTypeMapping TypeName="VFMS_DBModel.vType">
+              <MappingFragment StoreEntitySet="vType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="vType1" ColumnName="vType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vYears">
+            <EntityTypeMapping TypeName="VFMS_DBModel.vYear">
+              <MappingFragment StoreEntitySet="vYear">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="vYear1" ColumnName="vYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="VFMS_DBModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="VFMS_DBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="VFMS_DBModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="VFMS_DBModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="VFMS_DBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="VFMS_DBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="VFMS_DBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

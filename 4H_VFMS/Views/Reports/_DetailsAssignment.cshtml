@@ -1,0 +1,139 @@
+﻿@model _4H_VFMS.Models.tblVehicleAssignment
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="modal fade" id="addtblUserList">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="addtblVehicleAssignment">Details Assignment</h4>
+                </div>
+
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.Id)
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.dId, "dId", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(Model => Model.tblDriverList.dFirstName)
+                                @Html.DisplayFor(Model => Model.tblDriverList.dLastName) -
+                                @Html.DisplayFor(Model => Model.tblDriverList.dLicense)
+                                @Html.ValidationMessageFor(model => model.dId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:20px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(Model => Model.tblVehicleList.vType1.vType1) -
+                                @Html.DisplayFor(Model => Model.tblVehicleList.vLicPlate)
+                                @Html.ValidationMessageFor(model => model.vId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vAssignOutDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(Model => Model.vAssignOutDate)
+                                @Html.ValidationMessageFor(model => model.vAssignOutDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vAssignDuration, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(Model => Model.vAssignDuration)
+                                @Html.ValidationMessageFor(model => model.vAssignDuration, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vAssignInDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(Model => Model.vAssignInDate)
+                                @Html.ValidationMessageFor(model => model.vAssignInDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vAssignUsed, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(Model => Model.vAssignUsed)
+                                @Html.ValidationMessageFor(model => model.vAssignUsed, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vMileageOut, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(Model => Model.vMileageOut)
+                                @Html.ValidationMessageFor(model => model.vMileageOut, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vMileageIn, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(Model => Model.vMileageIn)
+                                @Html.ValidationMessageFor(model => model.vMileageIn, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.vMileageTravelled, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(Model => Model.vMileageTravelled)
+                                @Html.ValidationMessageFor(model => model.vMileageTravelled, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.createdBy, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(Model => Model.createdBy)
+                                @Html.ValidationMessageFor(model => model.createdBy, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.dateCreated, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(Model => Model.dateCreated)
+                                @Html.ValidationMessageFor(model => model.dateCreated, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.updatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(Model => Model.updatedBy)
+                                @Html.ValidationMessageFor(model => model.updatedBy, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <p style="padding-bottom:30px"></p>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.dateUpdated, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(Model => Model.dateUpdated)
+                                @Html.ValidationMessageFor(model => model.dateUpdated, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <p style="padding-bottom:20px"></p>
+
+                    </form>
+                </div>
+
+                <div class="modal-footer" style="padding-top:30px">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+}
